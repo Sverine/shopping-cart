@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Votre panier</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+  </head>
+
+  <body>
+    <div id="konami-container">
+        <figure>
+            <img src="assets/tacos-konami.gif">
+        </figure>
+    </div>
+
+      <header>
+          <figure>
+              <img src="assets/header.png">
+          </figure>
+
+      </header>
+
+      <section id="checkout-steps">
+          <ul>
+              <li>1. Panier</li>
+              <li>></li>
+              <li>2. Confirmation</li>
+              <li>></li>
+              <li>3. Récapitulatif</li>
+          </ul>
+      </section>
+
+      <section id="shopping-cart-container">
+        <h1>Votre panier</h1>
+        <table class="games-array">
+            <thead>
+                <tr>
+                <th>Jeux</th>
+                <th></th>
+                <th>Plateforme</th>
+                <th >Activation</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="tr-games" id="0">
+                    <td class="game-img">
+                        <figure>
+                            <img src="">
+                        </figure>
+                    </td>
+                    <td class="game-info">
+                        <ul>
+                            <li><h2></h2></li>
+                            <li><span>Livraison : </span>Téléchargement </li>
+                            <li><span>Disponibilité : </span>En stock </li>
+                            <li style="display:none"><span>Date de sortie : </span><span>5 juin 2020</span></li>
+                            <li style="display:none"><span>Langue : </span>Anglais*, Français*, Allemand*, Espagnol - Espagne, Polonais, Russe, Chinois simplifié, Chinois traditionnel </li>
+                            <li style="display:none">*Langues avec support audio complet</li>
+                        </ul>
+                    </td>
+                    <td class="game-system">
+                        <figure>
+                            <img src="">
+                        </figure>
+                    </td>
+                    <td class="game-activation">
+                        <figure>
+                            <img src="">
+                        </figure>
+                    </td>
+                    <td class="game-quantity">
+                        <input type="number" id="quantity" name="quantity" min="1" max="3" value="1">
+                    </td>
+                    <td class="game-price">
+                        <p class="price-strike">12.99</p>
+                        <p class="price">19.99€</p>
+                        <div class="discount-percent">
+                            <p></p>
+                            <figure><img src="assets/discount-tag.png"></figure>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="display:none" class="tooltip">
+            <figure>
+                <img src="assets/validation_stock.png">
+            </figure>
+            <p>Nous vous confirmons que votre produit est disponible en stock : votre clé d'activation ainsi que la procédure d'installation seront disponibles dans votre compte client quelques minutes après la réception de votre paiement et de la validation de votre commande.</p>
+        </div>
+
+        <div class="price-container">
+            <div class="discount-form">
+                <form >
+                    <input type="text" id="promo-code" name="promocode" placeholder="Entrer un code promo">
+                    <input type="submit" value="Appliquer" onclick="return validateFormOnSubmit()" />
+                </form>
+                <span class="error-message" style="display:none">Code invalide</span>
+            </div>
+
+            <div class="total-price">
+                <p>TOTAL TTC : <span>12.99€</span></p>
+                <p>Vous économisez <span>7</span>€</p>
+            </div>
+        </div>
+        
+        <div class="payment-methods-container">
+            <div class="payment-title">
+                <h2>choisissez votre moyen de paiement</h2>
+            </div>
+            <div class="radio-container">
+                <div>
+                    <input type="radio" id="CB" name="payments" value="CB">
+                    <label for="CB">
+                        <figure>
+                            <img src="assets/payment-cb.png">
+                        </figure>
+                        <p>Carte bleue</p>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="mastercard" name="payments" value="mastercard">
+                    <label for="mastercard">
+                        <figure>
+                            <img src="assets/payment-mastercard.png">
+                        </figure>
+                        <p>Mastercard</p>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="visa" name="payments" value="visa">
+                    <label for="visa">
+                        <figure>
+                            <img src="assets/payment-visa.png">
+                        </figure>
+                        <p>Visa</p>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="paypal" name="payments" value="paypal">
+                    <label for="paypal">
+                        <figure>
+                            <img src="assets/payment-paypal.png">
+                        </figure>
+                        <p>Paypal</p>
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="SEPA" name="payments" value="SEPA">
+                    <label for="SEPA">
+                        <figure>
+                            <img src="assets/payment-sepa.png">
+                        </figure>
+                        <p>Prélèvement SEPA</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button>continuer les achats</button>
+            <button class="submit" disabled>
+                <figure><img src="assets/lock-button-icon.png"></figure>
+                confirmer la commande
+                <div class="spinner-box">
+                    <div class="three-quarter-spinner"></div>
+                </div>
+            </button>
+            <p class="validation-message">Commande validée</p>
+        </div>
+
+        <div class="additional-informations">
+            <p>Si vous utilisez un VPN ou un proxy, veillez à bien le désactiver avant de procéder au paiement.</p>
+            <p>Allumez votre téléphone, vous devriez recevoir un message automatique confirmant votre paiement.</p>
+            <p>Notez que le numéro de téléphone utilisé est totalement crypté, même les employés de DLGamer n'y ont pas accès.</p>
+        </div>
+    </section>
+
+    <footer>
+        <figure>
+            <img src="assets/footer.png">
+        </figure>
+    </footer>
+
+<script src="index.js"></script>
+<script src="request.js"></script>
+
+
+  </body>
+</html>

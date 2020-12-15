@@ -1,0 +1,16 @@
+{
+  "name": "shopping_cart_page",
+  "version": "1.0.0",
+  "description": "description",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "konami": "^1.6.2",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
