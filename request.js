@@ -94,12 +94,11 @@ function createArray(x){
 
         for( var i in priceList){
             var item = priceList[i]
-            
+
             totalPrice +=parseFloat(document.querySelector('.price-strike').textContent);
         }
 
-        var test = document.querySelector(".total-price p:first-child span");
-        test.textContent = totalPrice +'€';
-        console.log(test)
+        var totalPriceItem = document.querySelector(".total-price p:first-child span");
+        totalPriceItem.textContent = totalPrice +'€';
     
 }
