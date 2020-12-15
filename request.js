@@ -89,28 +89,17 @@ function createArray(x){
     
     /* TOTAL PRICE*/
 
-    // var priceArray= {
-    //     price:[]
-    // }
+        var priceList = [document.querySelectorAll('.price-strike')]
+        var totalPrice = 0;
 
-    // for(i=0; i<3; i++){
+        for( var i in priceList){
+            var item = priceList[i]
+            
+            totalPrice +=parseFloat(document.querySelector('.price-strike').textContent);
+        }
 
-    //     priceArray.price.push({ 
-    //         "index" : i
-    //     });
-    // }
-    // console.log(priceArray)
-
-        var firstTotal = document.getElementById(0).querySelector('.price-strike').textContent;
-        firstTotal = parseFloat(firstTotal);
-        var secondTotal = document.getElementById(1).querySelector('.price-strike').textContent;
-        secondTotal = parseFloat(secondTotal);
-        var thirdTotal = document.getElementById(2).querySelector('.price-strike').textContent;
-        thirdTotal = parseFloat(thirdTotal);
-        console.log(firstTotal,secondTotal,thirdTotal);
-
-        var totalPrice = document.querySelector(".total-price span");
-        totalPrice.textContent = firstTotal+secondTotal+thirdTotal;
-
+        var test = document.querySelector(".total-price p:first-child span");
+        test.textContent = totalPrice +'€';
+        console.log(test)
     
 }
